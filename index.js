@@ -62,7 +62,7 @@ const megaTeacher = {
 
         // Ejercicio 8:
         if(arrBook.includes(book)) {
-            return console.log('Libro existente en la lista: ', book);
+            return console.log('Libro existente en la lista: ', book.toUpperCase());
         } else {
             arrBook.push(book);
             return console.log(`Libro añadido: ${book}. La lista contiene: ${arrBook.join(', ')}`)
@@ -99,29 +99,29 @@ function addHobbie(hobbie) {
     }
 }
 // Pruebas ejercicio 1
-// addHobbie('basketball'); // Prueba hobbie existente
-// addHobbie('hockey'); // Pruebas hobbies no existentes
-// addHobbie('magic');
+    addHobbie('basketball'); // Prueba hobbie existente
+    addHobbie('hockey'); // Pruebas hobbies no existentes
+    addHobbie('magic');
 
 
 console.log(megaTeacher.hobbies);
 
 console.log('==============================================');
 
-// 2- Escribe un método introduceMySelf dentro del objeto que devuelva el siguiente string: "Hola, me llamo <name> <lastname>, tengo [age] años y vivo en la calle <street>, <number>. Mis hobbies son: <hobbie>, <hobbie>, <hobbie> (etc.)".
+// // 2- Escribe un método introduceMySelf dentro del objeto que devuelva el siguiente string: "Hola, me llamo <name> <lastname>, tengo [age] años y vivo en la calle <street>, <number>. Mis hobbies son: <hobbie>, <hobbie>, <hobbie> (etc.)".
 
 console.log(megaTeacher.introduceMySelf()); // Llamando al método del objeto
 
 console.log('==============================================');
 
 
-// 3- Modifica la primera función: debe aceptar un array de nuevos hobbies, y se lo añadirá a los hobbies del objeto hasta que éstos últimos sean 8, no más. Ejemplo:
+// // 3- Modifica la primera función: debe aceptar un array de nuevos hobbies, y se lo añadirá a los hobbies del objeto hasta que éstos últimos sean 8, no más. Ejemplo:
 // addHobbies(["dancing", "movies", "traveling", "eating", "exercise", "museums"])
 // console.log(megaTeacher.hobbies)
 // //["basketball", "coding", "music", "reading", "dancing", "movies", "traveling", "eating"]
 // (al llegar a 8, deja de introducir elementos)
 
-// Prueba ejercicio 3
+// // Prueba ejercicio 3
 addHobbie(['basketball', 'magic', 'coding', 'music', 'sport', 'bike', 'trick', 'poker', 'fly']);
 
 console.log(megaTeacher.hobbies);
@@ -129,7 +129,7 @@ console.log(megaTeacher.hobbies);
 console.log('==============================================');
 
 
-// 4- Escribe un método que te permita modificar los datos personales.
+// // 4- Escribe un método que te permita modificar los datos personales.
 
 megaTeacher.modifyInfo('name', 'Robert'); // prueba método para modificar datos personales
 megaTeacher.modifyInfo('age', 35) // prueba método para modificar datos personales
@@ -141,9 +141,9 @@ console.log(megaTeacher.introduceMySelf()); // Propiedades personales modificada
 console.log('==============================================');
 
 
-// 5- Escribe un método que te permita modificar la dirección.
+// // 5- Escribe un método que te permita modificar la dirección.
 
-// Probando método para modificar la dirección
+// // Probando método para modificar la dirección
 console.log(megaTeacher.modifyAddress('Santa Teresa', 19, 0, false));
 
 console.log(megaTeacher.introduceMySelf());
@@ -151,7 +151,7 @@ console.log(megaTeacher.introduceMySelf());
 console.log('==============================================');
 
 
-// 6- Modifica el metodo anterior para poder añadir una segunda dirección.
+// // 6- Modifica el metodo anterior para poder añadir una segunda dirección.
 
 console.log(megaTeacher.modifyAddress('Bilbao', 18, 8, true));
 console.log(megaTeacher);
@@ -169,24 +169,24 @@ megaTeacher.verifyBook('Lord of the Flies');
 
 console.log('==============================================');
 
-// 8- Si existe, imprima el libro en mayusculas. Si no existe agregar a la lista de libros.
+// Si existe, imprima el libro en mayusculas. Si no existe agregar a la lista de libros.
 megaTeacher.verifyBook('The perfume');
 console.log(megaTeacher.books); // Prueba de libros añadidos con verifyBook
 
 console.log('==============================================');
 
-// 9- Escribe una función que te permita añadir películas. Y si no tiene parámetro de entrada te retorne la película de en medio.
+// // 8- Escribe una función que te permita añadir películas. Y si no tiene parámetro de entrada te retorne la película de en medio.
 function addFilm(film) {
     const arrFilms = megaTeacher.films;
 
-    if(film) {
+    if(!arrFilms.includes(film) && typeof film !== 'undefined') {
         arrFilms.push(film);
         return `Película añadida: ${film}. La lista contiene: ${arrFilms.join(', ')}`
     } else {
         if(arrFilms.length % 2 === 0) {
             return 'Hay un número de películas pares. No hay medio exacto'
         } else {
-            return megaTeacher.films[(megaTeacher.films.length - 1) / 2];
+            return `Película del centro: ${megaTeacher.films[(megaTeacher.films.length - 1) / 2]}`;
         }
     }
 }
